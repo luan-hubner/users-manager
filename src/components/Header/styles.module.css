@@ -1,0 +1,53 @@
+header {
+  width: 100%;
+  height: 100px;
+
+  background-color: var(--bg-light);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+header .container {
+  max-width: 1120px;
+  height: 100%;
+
+  margin: 0 auto;
+}
+
+header .container .content {
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 2rem;
+}
+
+header .container .content img {
+  width: 200px;
+}
+
+header .container .content span {
+  border-radius: 100%;
+
+  position: relative;
+
+  width: 70px;
+  height: 70px;
+
+  border: 2px solid var(--green);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+header .container .content span img {
+  width: 63px;
+  height: 63px;
+}
