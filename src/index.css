@@ -1,13 +1,40 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-size: 16px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'archivo-bold';
+  src: url('./assets/fonts/Archivo-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'archivo-bold-italic';
+  src: url('./assets/fonts/Archivo-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'archivo-light-italic';
+  src: url('./assets/fonts/Archivo-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'archivo-extra-light-italic';
+  src: url('./assets/fonts/Archivo-ExtraLightItalic.ttf');
+}
+
+:root {
+  --bg-dark: #282C34;
+  --bg-light: #363B44;
+  --green: #0BD707;
+  --green-hover: #07b304;
+  --red: #FF0000;
+  --input-text-color: #ACACAC;
+  --archivo-b: 'archivo-bold';
+  --archivo-bi: 'archivo-bold-italic';
+  --archivo-li: 'archivo-light-italic';
+  --archivo-eli: 'archivo-extra-light-italic';
 }
