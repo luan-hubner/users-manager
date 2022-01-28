@@ -1,0 +1,40 @@
+.create__user__modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.create__user__modal .modal__body {
+  width: 700px;
+  height: 700px;
+
+  background-color: var(--bg-light);
+
+  border-radius: 8px;
+
+  margin: 0 auto;
+}
+
+.create__user__modal .modal__body .modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem 3rem;
+}
+
+.create__user__modal .modal__body .modal__header .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  column-gap: 1.5rem;
+}
+
+.create__user__modal .modal__body .modal__header .title h1 {
+  font-family: var(--archivo-bi);
+  font-size: 2.2rem;
+  color: var(--input-text-color);
+}
