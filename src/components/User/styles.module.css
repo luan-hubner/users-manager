@@ -1,0 +1,74 @@
+.user__box {
+  width: 180px;
+  height: 294px;
+  border-radius: 8px;
+
+  background-color: var(--bg-light);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 0.8rem 0;
+}
+
+.user__box img {
+  width: 100px;
+  border-radius: 100%;
+}
+
+.user__box .user__name {
+  font-family: var(--archivo-b);
+  font-size: 1rem;
+  text-align: center;
+  
+  color: #FFFFFF;
+}
+
+.user__box .user__role {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+}
+
+.user__box .user__role .role__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 3px;
+
+  background-color: var(--bg-ultra-dark);
+
+  border-radius: 4px 0 0 4px;
+}
+
+.user__box .user__role .role__name {
+  width: 130px;
+  height: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--bg-dark);
+
+  border-radius: 0 4px 4px 0;
+}
+
+.user__box .user__role .role__name span {
+  font-family: var(--archivo-b);
+  font-size: 0.8rem;
+  color: #FFFFFF;
+}
+
+.user__box .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  column-gap: 1rem;
+}
