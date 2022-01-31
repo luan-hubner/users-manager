@@ -27,11 +27,14 @@
 }
 
 :root {
+  --bg-ultra-dark: #1F232C;
   --bg-dark: #282C34;
   --bg-light: #363B44;
+  --blue: #00F0FF;
   --green: #0BD707;
   --green-hover: #07b304;
   --red: #FF0000;
+  --red-hover: #c90101;
   --input-text-color: #ACACAC;
   --archivo-b: 'archivo-bold';
   --archivo-bi: 'archivo-bold-italic';
