@@ -1,4 +1,4 @@
-.create__user__modal {
+.edit__user__modal {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   height: 100vh;
 }
 
-.create__user__modal .modal__body {
+.edit__user__modal .modal__body {
   width: 700px;
   height: 700px;
 
@@ -17,7 +17,7 @@
   margin: 0 auto;
 }
 
-.create__user__modal .modal__body .modal__header {
+.edit__user__modal .modal__body .modal__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,13 +25,13 @@
   padding: 2rem 3rem;
 }
 
-.create__user__modal .modal__body .modal__header .icon {
+.edit__user__modal .modal__body .modal__header .icon {
   color: #ACACAC;
   font-size: 2rem;
   cursor: pointer;
 }
 
-.create__user__modal .modal__body .modal__header .title {
+.edit__user__modal .modal__body .modal__header .title {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,13 +39,13 @@
   column-gap: 1.5rem;
 }
 
-.create__user__modal .modal__body .modal__header .title h1 {
+.edit__user__modal .modal__body .modal__header .title h1 {
   font-family: var(--archivo-bi);
   font-size: 2.2rem;
   color: var(--input-text-color);
 }
 
-.create__user__modal .modal__body form {
+.edit__user__modal .modal__body form {
   padding: 1.5rem 3rem;
 
   row-gap: 1rem;
@@ -54,14 +54,14 @@
   flex-direction: column;
 }
 
-.create__user__modal .modal__body form .input__group {
+.edit__user__modal .modal__body form .input__group {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
   column-gap: 1rem;
 }
 
-.create__user__modal .modal__body form .buttons {
+.edit__user__modal .modal__body form .buttons {
   padding: 1.5rem 3rem;
 
   display: flex;

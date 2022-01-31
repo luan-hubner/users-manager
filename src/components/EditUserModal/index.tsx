@@ -11,9 +11,22 @@ import { useForm } from 'react-hook-form';
 
 type EditUserModalProps = {
   setEditUserModalOpened: (value: boolean) => void;
+  user: UserType;
 };
 
-export default function EditUserModal({ setEditUserModalOpened }: EditUserModalProps) {
+type UserType = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  birthDate: string;
+  email: string;
+  document: string;
+  password: string;
+  role: string;
+  photo: string;
+}
+
+export default function EditUserModal({ setEditUserModalOpened, user }: EditUserModalProps) {
   const { register, handleSubmit } = useForm();
 
   function create(data) {
@@ -27,7 +40,7 @@ export default function EditUserModal({ setEditUserModalOpened }: EditUserModalP
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
     >
-      <div className={styles.create__user__modal}>
+      <div className={styles.edit__user__modal}>
         <div className={styles.modal__body}>
           <div className={styles.modal__header}>
             <div className={styles.title}>
@@ -52,30 +65,36 @@ export default function EditUserModal({ setEditUserModalOpened }: EditUserModalP
               <InputText
                 label="nome"
                 variant="filled"
+                defaultValue={user.firstName}
               />
               <InputText
                 label="sobrenome"
                 variant="filled"
+                defaultValue={user.lastName}
               />
             </div>
             <InputText
               label="e-mail"
               variant="filled"
+              defaultValue={user.email}
             />
             <div className={styles.input__group}>
               <InputText
                 label="data de nascimento"
                 variant="filled"
+                defaultValue={user.birthDate}
               />
               <InputText
                 label="CPF/RG"
                 variant="filled"
+                defaultValue={user.document}
               />
             </div>
             <div className={styles.input__group}>
               <InputText
                 label="tipo de usuário"
                 variant="filled"
+                defaultValue={user.role}
               />
             </div>
             <div className={styles.input__group}>
