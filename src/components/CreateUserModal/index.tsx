@@ -5,12 +5,21 @@ import { InputText } from '../../components/InputText';
 
 import Person from '@mui/icons-material/Person';
 import Close from '@mui/icons-material/Close';
+import CButton from '../Button';
+
+import { useForm } from 'react-hook-form';
 
 type CreateUserModalProps = {
   setCreateUserModalOpened: (value: boolean) => void;
 };
 
 export default function CreateUserModal({ setCreateUserModalOpened }: CreateUserModalProps) {
+  const { register, handleSubmit } = useForm();
+
+  function create(data) {
+    console.log(data);
+  };
+
   return (
     <Modal
       open={true}
@@ -33,38 +42,66 @@ export default function CreateUserModal({ setCreateUserModalOpened }: CreateUser
             </div>
 
             <Close
-              style={{
-                color: '#ACACAC',
-                fontSize: 32
-              }}
+              className={styles.icon}
+              onClick={() => setCreateUserModalOpened(false)}
             />
           </div>
 
-          <form action="">
-            <InputText
-              label="nome"
-              variant="filled"
-            />
-            <InputText
-              label="sobrenome"
-              variant="filled"
-            />
+          <form onSubmit={handleSubmit(create)}>
+            <div className={styles.input__group}>
+              <InputText
+                label="nome"
+                variant="filled"
+              />
+              <InputText
+                label="sobrenome"
+                variant="filled"
+              />
+            </div>
             <InputText
               label="e-mail"
               variant="filled"
             />
-            <InputText
-              label="data de nascimento"
-              variant="filled"
-            />
-            <InputText
-              label="CPF/RG"
-              variant="filled"
-            />
-            <InputText
-              label="tipo de usuário"
-              variant="filled"
-            />
+            <div className={styles.input__group}>
+              <InputText
+                label="data de nascimento"
+                variant="filled"
+              />
+              <InputText
+                label="CPF/RG"
+                variant="filled"
+              />
+            </div>
+            <div className={styles.input__group}>
+              <InputText
+                label="tipo de usuário"
+                variant="filled"
+              />
+            </div>
+            <div className={styles.input__group}>
+              <InputText
+                label="senha"
+                variant="filled"
+              />
+              <InputText
+                label="confirmar senha"
+                variant="filled"
+              />
+            </div>
+
+            <div className={styles.buttons}>
+              <CButton
+                color="success"
+                label="CADASTRAR"
+                type="submit"
+              />
+              <div onClick={() => setCreateUserModalOpened(false)}>
+                <CButton
+                  color="error"
+                  label="CANCELAR"
+                />
+              </div>
+            </div>
           </form>
         </div>
       </div>
