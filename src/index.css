@@ -7,6 +7,11 @@
 }
 
 @font-face {
+  font-family: 'archivo-regular';
+  src: url('./assets/fonts/Archivo-Regular.ttf');
+}
+
+@font-face {
   font-family: 'archivo-bold';
   src: url('./assets/fonts/Archivo-Bold.ttf');
 }
@@ -36,6 +41,7 @@
   --red: #FF0000;
   --red-hover: #c90101;
   --input-text-color: #ACACAC;
+  --archivo-r: 'archivo-regular';
   --archivo-b: 'archivo-bold';
   --archivo-bi: 'archivo-bold-italic';
   --archivo-li: 'archivo-light-italic';
