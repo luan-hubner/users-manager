@@ -28,7 +28,7 @@ export default function Table({ users }: TableProps) {
   const COMPONENTS_PER_PAGE = 5;
 
   useEffect(() => {
-    const usersSplited = String(users.length / 5).split('.');
+    const usersSplited = String(users.length / COMPONENTS_PER_PAGE).split('.');
     
     if (usersSplited[1]) {
       setPages(Number(usersSplited[0]) + 1);

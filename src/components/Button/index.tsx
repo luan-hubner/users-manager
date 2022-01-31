@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import { ButtonUnstyled, buttonUnstyledClasses, ButtonUnstyledProps, Stack } from '@mui/material';
+import { ButtonUnstyled, buttonUnstyledClasses, ButtonUnstyledProps } from '@mui/material';
 
 type ButtonProps = {
   label: string;

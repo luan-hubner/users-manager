@@ -16,7 +16,7 @@ type CreateUserModalProps = {
 export default function CreateUserModal({ setCreateUserModalOpened }: CreateUserModalProps) {
   const { register, handleSubmit } = useForm();
 
-  function create(data) {
+  function createUser(data) {
     console.log(data);
   };
 
@@ -47,7 +47,7 @@ export default function CreateUserModal({ setCreateUserModalOpened }: CreateUser
             />
           </div>
 
-          <form onSubmit={handleSubmit(create)}>
+          <form onSubmit={handleSubmit(createUser)}>
             <div className={styles.input__group}>
               <InputText
                 label="nome"
