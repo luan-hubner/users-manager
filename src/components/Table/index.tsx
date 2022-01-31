@@ -25,22 +25,19 @@ export default function Table({ users }: TableProps) {
   const [listedUsers, setListedUsers] = useState<UserType[]>(users.slice(0, 5));
   const [pages, setPages] = useState<number>(0);
 
-  const COMPONENT_PER_PAGE = 5;
+  const COMPONENTS_PER_PAGE = 5;
 
   useEffect(() => {
-    let usersSplited = String(users.length / 5).split('.');
-    let pageQuantity: number;
+    const usersSplited = String(users.length / 5).split('.');
     
     if (usersSplited[1]) {
-      pageQuantity = Number(usersSplited[0]) + 1;
+      setPages(Number(usersSplited[0]) + 1);
     };
-
-    setPages(pageQuantity);
   }, []);
 
   function handlePaginationChange(event: React.ChangeEvent<unknown>, value: number) {
-    const startIndex = value * COMPONENT_PER_PAGE - COMPONENT_PER_PAGE;
-    const lastIndex = startIndex + COMPONENT_PER_PAGE;
+    const startIndex = value * COMPONENTS_PER_PAGE - COMPONENTS_PER_PAGE;
+    const lastIndex = startIndex + COMPONENTS_PER_PAGE;
 
     setListedUsers(users.slice(startIndex, lastIndex));
   };
@@ -56,7 +53,7 @@ export default function Table({ users }: TableProps) {
       </div>
       <Pagination
         count={pages}
-        color="secondary"
+        color="standard"
         onChange={handlePaginationChange}
       />
     </div>
