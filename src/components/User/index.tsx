@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Tooltip } from '@mui/material';
 
 import styles from './styles.module.css';
@@ -9,6 +11,10 @@ import GppGood from '@mui/icons-material/GppGood';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
 import UserDefaultImage from '../../assets/images/user_default_image.png';
+
+import EditUserModal from '../EditUserModal';
+import DeleteUserModal from '../DeleteUserModal';
+import DetailsUserModal from '../DetailsUserModal';
 
 type UserProps = {
   user: UserType;
@@ -27,6 +33,10 @@ type UserType = {
 }
 
 export default function User({ user }: UserProps) {
+  const [deleteUserModalOpened, setDeleteUserModalOpened] = useState(false);
+  const [editUserModalOpened, setEditUserModalOpened] = useState(false);
+  const [detailsUserModalOpened, setDetailsUserModalOpened] = useState(false);
+
   return (
     <div className={styles.user__box}>
       <div
@@ -60,15 +70,51 @@ export default function User({ user }: UserProps) {
 
       <div className={styles.buttons}>
         <Tooltip title="Detalhes">
-          <RemoveRedEye style={{ color: "var(--blue)" }} />
+          <RemoveRedEye
+            style={{ color: "var(--blue)" }}
+            className={styles.icons}
+            onClick={() => setDetailsUserModalOpened(true)}
+          />
         </Tooltip>
         <Tooltip title="Editar">
-          <Edit style={{ color: "var(--green)" }} />
+          <Edit
+            style={{ color: "var(--green)" }}
+            className={styles.icons}
+            onClick={() => setEditUserModalOpened(true)}
+          />
         </Tooltip>
         <Tooltip title="Remover">
-          <Delete style={{ color: "var(--red)" }} />
+          <Delete 
+            style={{ color: "var(--red)" }}
+            className={styles.icons}
+            onClick={() => setDeleteUserModalOpened(true)}
+          />
         </Tooltip>
       </div>
+
+      {
+        editUserModalOpened ?
+        <EditUserModal
+          setEditUserModalOpened={setEditUserModalOpened}
+          user={user}
+        /> : null
+      }
+
+      {
+        deleteUserModalOpened ?
+        <DeleteUserModal
+          setDeleteUserModalOpened={setDeleteUserModalOpened}
+          user={user}
+        /> : null
+      }
+
+      {
+        detailsUserModalOpened ?
+        <DetailsUserModal
+          setDetailsUserModalOpen={setDetailsUserModalOpened}
+          user={user}
+        /> : null
+      }
     </div>
   );
 }
