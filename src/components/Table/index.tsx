@@ -28,12 +28,14 @@ export default function Table({ users }: TableProps) {
   const COMPONENTS_PER_PAGE = 5;
 
   useEffect(() => {
+    handlePaginationChange(null, 1);
+    
     const usersSplited = String(users.length / COMPONENTS_PER_PAGE).split('.');
     
     if (usersSplited[1]) {
       setPages(Number(usersSplited[0]) + 1);
     };
-  }, []);
+  }, [users]);
 
   function handlePaginationChange(event: React.ChangeEvent<unknown>, value: number) {
     const startIndex = value * COMPONENTS_PER_PAGE - COMPONENTS_PER_PAGE;
