@@ -10,14 +10,17 @@ import {
 
 import Login from './pages/Login';
 import Users from './pages/Users';
+import { AuthProvider } from './contexts/AuthContext';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Login />}/>
+  <AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />}/>
 
-      <Route path="/users" element={<Users />}/>
-    </Routes>
-  </BrowserRouter>,
+        <Route path="/users" element={<Users />}/>
+      </Routes>
+    </BrowserRouter>
+  </AuthProvider>,
   document.getElementById('root')
 );

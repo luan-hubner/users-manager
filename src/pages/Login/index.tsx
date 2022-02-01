@@ -1,3 +1,5 @@
+import { SyntheticEvent, useContext, useState } from 'react';
+
 import styles from './styles.module.css';
 import users__manager from '../../assets/images/usersmanager.png';
 
@@ -6,15 +8,27 @@ import Lock from '@mui/icons-material/Lock';
 
 import { InputAdornment, OutlinedInputProps } from '@mui/material';
 import { InputText } from '../../components/InputText';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export default function Login() {
+  const { signIn } = useContext(AuthContext);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  async function login(e: SyntheticEvent) {
+    e.preventDefault();
+    
+    signIn({ email, password });
+  };
+  
   return (
     <main>
       <div className={styles.container}>
         <div className={styles.login__box}>
           <img src={users__manager} alt="users-manager" />
 
-          <form onSubmit={(e) => e.preventDefault()}>
+          <form onSubmit={(e) => login(e)}>
             <InputText
               label="e-mail"
               variant="filled"
@@ -24,6 +38,7 @@ export default function Login() {
                 </InputAdornment>
               )} as Partial<OutlinedInputProps>}
               style={{ marginTop: 11, width: '100%' }}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <InputText
               label="password"
@@ -35,9 +50,10 @@ export default function Login() {
                 </InputAdornment>
               )} as Partial<OutlinedInputProps>}
               style={{ marginTop: 11, width: '100%' }}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
-            <button type='submit' onClick={() => window.location.pathname = '/users'}>LOGIN</button>
+            <button type='submit'>LOGIN</button>
           </form>
         </div>
       </div>
