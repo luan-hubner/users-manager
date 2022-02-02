@@ -7,6 +7,7 @@ import CButton from '../Button';
 
 type DeleteUserModalProps = {
   setDeleteUserModalOpened: (value: boolean) => void;
+  getUsers: () => void;
   user: UserType;
 };
 
@@ -22,9 +23,19 @@ type UserType = {
   photo: string;
 }
 
-export default function DeleteUserModal({ setDeleteUserModalOpened, user }: DeleteUserModalProps) {
+export default function DeleteUserModal({ setDeleteUserModalOpened, getUsers, user }: DeleteUserModalProps) {
   async function removeUser() {
-    console.log(user.id)
+    await fetch(`http://localhost:3001/users/${user.id}`, {
+      method: 'DELETE'
+    })
+      .then(response => response.json())
+      .then(response => {
+        setDeleteUserModalOpened(false);
+        getUsers();
+      })
+      .catch(err => {
+        console.log(err);
+      })
   };
 
   return (
