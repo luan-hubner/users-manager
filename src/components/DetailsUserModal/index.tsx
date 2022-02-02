@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import styles from './styles.module.css';
 
 import { Modal } from "@mui/material";
@@ -29,6 +31,18 @@ type UserType = {
 }
 
 export default function DetailsUserModal({ setDetailsUserModalOpen, user }: DetailsUserModalProps) {
+  const [formatedDate, setFormatedDate] = useState(formatDate());
+
+  function formatDate() {
+    const date = new Date(user.birthDate);
+    
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <Modal
       open={true}
@@ -82,7 +96,7 @@ export default function DetailsUserModal({ setDetailsUserModalOpen, user }: Deta
 
             <div className={styles.info}>
               <Cake />
-              <span>{user.birthDate}</span>
+              <span>{formatedDate}</span>
             </div>
 
             <div className={styles.info}>
