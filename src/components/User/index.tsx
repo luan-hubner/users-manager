@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import { Tooltip } from '@mui/material';
 
@@ -15,9 +15,11 @@ import UserDefaultImage from '../../assets/images/user_default_image.png';
 import EditUserModal from '../EditUserModal';
 import DeleteUserModal from '../DeleteUserModal';
 import DetailsUserModal from '../DetailsUserModal';
+import { AuthContext } from '../../contexts/AuthContext';
 
 type UserProps = {
   user: UserType;
+  getUsers: () => void;
 };
 
 type UserType = {
@@ -32,7 +34,9 @@ type UserType = {
   photo: string;
 }
 
-export default function User({ user }: UserProps) {
+export default function User({ user, getUsers }: UserProps) {
+  const { authenticatedUser } = useContext(AuthContext);
+
   const [deleteUserModalOpened, setDeleteUserModalOpened] = useState(false);
   const [editUserModalOpened, setEditUserModalOpened] = useState(false);
   const [detailsUserModalOpened, setDetailsUserModalOpened] = useState(false);
@@ -76,26 +80,37 @@ export default function User({ user }: UserProps) {
             onClick={() => setDetailsUserModalOpened(true)}
           />
         </Tooltip>
-        <Tooltip title="Editar">
-          <Edit
-            style={{ color: "var(--green)" }}
-            className={styles.icons}
-            onClick={() => setEditUserModalOpened(true)}
-          />
-        </Tooltip>
-        <Tooltip title="Remover">
-          <Delete 
-            style={{ color: "var(--red)" }}
-            className={styles.icons}
-            onClick={() => setDeleteUserModalOpened(true)}
-          />
-        </Tooltip>
+        {
+          authenticatedUser.role === "ADMIN" ? (
+            <>
+              <Tooltip title="Editar">
+                <Edit
+                  style={{ color: "var(--green)" }}
+                  className={styles.icons}
+                  onClick={() => setEditUserModalOpened(true)}
+                />
+              </Tooltip>
+              {
+                authenticatedUser.id != user.id ? (
+                  <Tooltip title="Remover">
+                    <Delete
+                      style={{ color: "var(--red)" }}
+                      className={styles.icons}
+                      onClick={() => setDeleteUserModalOpened(true)}
+                    />
+                  </Tooltip>
+                ) : null
+              }
+            </>
+          ) : null
+        }
       </div>
 
       {
         editUserModalOpened ?
         <EditUserModal
           setEditUserModalOpened={setEditUserModalOpened}
+          getUsers={getUsers}
           user={user}
         /> : null
       }
@@ -104,6 +119,7 @@ export default function User({ user }: UserProps) {
         deleteUserModalOpened ?
         <DeleteUserModal
           setDeleteUserModalOpened={setDeleteUserModalOpened}
+          getUsers={getUsers}
           user={user}
         /> : null
       }
