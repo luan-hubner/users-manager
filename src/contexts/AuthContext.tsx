@@ -43,7 +43,11 @@ export function AuthProvider({ children }) {
 
     if (tokenAlreadyExists) {
       verifyToken(tokenAlreadyExists);  
-    }
+    } else {
+      if (window.location.pathname !== '/') {
+        window.location.href = '/';
+      };
+    };
   }, []);
 
   async function getUsers(): Promise<UserType[]> {
