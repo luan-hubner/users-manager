@@ -10,7 +10,7 @@ Projeto desenvolvido conforme proposta do desafio técnico 🚀
 
 ## Techs
 
-Conforme solicitado nos parâtros do desafio:
+Conforme solicitado nos parâmetros do desafio:
 
 - [ReactJS] - framework web.
 - [JSON Server] - mock http.
@@ -23,7 +23,7 @@ As senhas, tokens e imagens foram convertidas para base64
 para simular criptografia e armazenamento.
 
 Em ambientes reais utilizaria-se outros métodos de armazenamento das imagens
-e outros métodos de criptografia para os tokens como JWT.
+e outros métodos de criptografia para os tokens como o JWT.
 
 ## Instalação
 
@@ -57,7 +57,7 @@ npm run json-server
 Caso utilize yarn:
 
 ```sh
-yarn add -g json-server
+yarn add global json-server
 yarn json-server
 ```
 
@@ -67,8 +67,8 @@ Com o projeto e o json-server rodando podemos começar utilizá-lo.
 
 As credenciais do usuário default são:
 
-Usuário: admin@usm.com
-Senha: 123456
+> e-mail: admin@usm.com
+> password: 123456
 
 [//]: #
 
