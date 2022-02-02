@@ -2,19 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 100vh;
 }
 
 .edit__user__modal .modal__body {
   width: 700px;
-  height: 700px;
 
   background-color: var(--bg-light);
 
   border-radius: 8px;
 
   margin: 0 auto;
+}
+
+.edit__user__modal .modal__body .modal__content {
+  height: 100%;
+
+  padding-bottom: 1rem;
 }
 
 .edit__user__modal .modal__body .modal__header {
@@ -61,13 +64,73 @@
   column-gap: 1rem;
 }
 
+.edit__user__modal .modal__body .modal__content form .input__group .btn__image__upload {
+  font-family: var(--archivo-b);
+  color: var(--input-text-color);
+}
+
+.edit__user__modal .modal__body .modal__content form .input__group .btn__image__upload .text__into__btn {
+  font-family: var(--archivo-bi);
+  color: var(--input-text-color);
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.edit__user__modal .modal__body .modal__content form .input__group .image__preview {
+  display: flex;
+  justify-content: center;
+}
+
+.edit__user__modal .modal__body .modal__content form .input__group .image__preview span {
+  width: 82px;
+  height: 82px;
+
+  border-radius: 100%;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.edit__user__modal .modal__body .modal__content form .input__group .select__group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .edit__user__modal .modal__body form .buttons {
   padding: 1.5rem 3rem;
 
   display: flex;
   justify-content: right;
 
-  padding: 4rem 0 0 0;
+  padding: 2rem 0 0 0;
 
   column-gap: 1rem;
+}
+
+.edit__user__modal .modal__body .modal__content form .field__label {
+  font-family: var(--archivo-li);
+  color: var(--input-text-color);
+  font-size: 1.5rem;
+  padding: 0 .5rem;
+}
+
+.edit__user__modal .modal__body .modal__content form .field {
+  overflow: 'hidden';
+  border-radius: 4;
+  height: 65px;
+  padding: 0 1rem 0 .4rem;
+  background-color: var(--bg-dark);
+  font-family: var(--archivo-b);
+  color: var(--input-text-color);
+}
+
+.edit__user__modal .modal__body .modal__content form .error {
+  color: #FFFFFF;
+}
+
+@media (max-width: 425px) {
+  .edit__user__modal .modal__body .modal__content form {
+    padding: 1.5rem 1rem;
+  }
 }
