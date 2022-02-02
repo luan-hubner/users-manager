@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 
+import emptyBox from '../../assets/images/empty_box.png';
+
 import styles from './styles.module.css';
 
 import Pagination from '@mui/material/Pagination';
+
 import User from '../User';
 
 type TableProps = {
   users: UserType[];
+  getUsers: () => void;
 };
 
 type UserType = {
@@ -21,7 +25,7 @@ type UserType = {
   photo: string;
 }
 
-export default function Table({ users }: TableProps) {
+export default function Table({ users, getUsers }: TableProps) {
   const [listedUsers, setListedUsers] = useState<UserType[]>(users.slice(0, 5));
   const [pages, setPages] = useState<number>(0);
 
@@ -46,18 +50,34 @@ export default function Table({ users }: TableProps) {
 
   return (
     <div className={styles.table}>
-      <div className={styles.content}>
-        {
-          listedUsers.map(user => (
-            <User user={user} />
-          ))
-        }
-      </div>
-      <Pagination
-        count={pages}
-        color="standard"
-        onChange={handlePaginationChange}
-      />
+      {
+        listedUsers.length ? (
+          <>
+            <div className={styles.content}>
+              {
+                listedUsers.map(user => (
+                  <User key={user.id} user={user} getUsers={getUsers} />
+                ))
+              }
+            </div>
+
+            {
+              listedUsers.length > 5 ? (
+                <Pagination
+                  count={pages}
+                  color="primary" variant="outlined" shape="rounded"
+                  onChange={handlePaginationChange}
+                />
+              ) : null
+            }
+          </>
+        ) : (
+          <div className={styles.no__content}>
+            <img src={emptyBox} alt="no-data" />
+            <h1>Não existem usuários para serem listados.</h1>
+          </div>
+        )
+      }
     </div>
   );
 }

@@ -16,3 +16,20 @@
   row-gap: 1rem;
   column-gap: 1rem;
 }
+
+.table .no__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.table .no__content img {
+  width: 7rem;
+}
+
+.table .no__content h1 {
+  font-family: var(--archivo-b);
+  color: var(--input-text-color);
+}
