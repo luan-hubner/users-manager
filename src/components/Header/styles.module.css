@@ -6,7 +6,7 @@ header {
 
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
 }
 
 header .container {
@@ -27,29 +27,20 @@ header .container .content {
 }
 
 header .container .content img {
-  width: 200px;
+  width: 12.5rem;
 }
 
-header .container .content span {
+header .container .content .user__image {
+  max-width: 72px;
+  width: 100%;
+  height: 72px;
+
+  background-size: cover;
+  background-position: center;
+
   border-radius: 100%;
 
-  position: relative;
-
-  width: 70px;
-  height: 70px;
-
-  border: 2px solid var(--green);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   cursor: pointer;
-}
-
-header .container .content span img {
-  width: 63px;
-  height: 63px;
 }
 
 .account__menu ul {

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import styles from './styles.module.css';
 
-import users__manager from '../../assets/images/usersmanager.png';
-import user__photo from '../../assets/images/me.png';
+import usersManager from '../../assets/images/usersmanager.png';
+import userDefaultImage from '../../assets/images/user_default_image.png';
 
 import Person from '@mui/icons-material/Person';
 import Menu from '@mui/material/Menu';
@@ -12,8 +12,14 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import Logout from '@mui/icons-material/Logout';
 import Tooltip from '@mui/material/Tooltip';
+import { AuthContext } from '../../contexts/AuthContext';
+import ProfileModal from '../ProfileModal';
 
 export default function Header() {
+  const { logout, authenticatedUser } = useContext(AuthContext);
+
+  const [profileModalOpened, setProfileModalOpened] = useState(false);
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   
@@ -29,19 +35,19 @@ export default function Header() {
     <header>
       <div className={styles.container}>
         <div className={styles.content}>
-          <img src={users__manager} alt="users-manager" />
+          <img src={usersManager} alt="users-manager" />
 
           <Tooltip title="Opções da Conta">
-            <span>
-              <img
-                src={user__photo}
-                alt="user"
-                onClick={handleClick}
-                aria-controls={open ? 'account-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-              />
-            </span>
+            <div
+              className={styles.user__image}
+              style={{
+                backgroundImage: authenticatedUser.photo ? `url(${authenticatedUser.photo})` : `url(${userDefaultImage})`
+              }}
+              onClick={handleClick}
+              aria-controls={open ? 'account-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+            />
           </Tooltip>
         </div>
         <Menu
@@ -68,7 +74,7 @@ export default function Header() {
                 display: 'block',
                 position: 'absolute',
                 top: 2,
-                right: 25,
+                right: 32,
                 width: 10,
                 height: 10,
                 bgcolor: 'var(--bg-ultra-dark)',
@@ -79,15 +85,15 @@ export default function Header() {
           }}
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-          >
-          <MenuItem>
+        >
+          <MenuItem onClick={() => setProfileModalOpened(true)}>
             <ListItemIcon>
               <Person fontSize="medium" className={styles.menu__icon} />
             </ListItemIcon>
             Meu Perfil
           </MenuItem>
           <Divider />
-          <MenuItem>
+          <MenuItem onClick={() => logout()}>
             <ListItemIcon>
               <Logout fontSize="medium" className={styles.menu__icon} />
             </ListItemIcon>
@@ -95,6 +101,12 @@ export default function Header() {
           </MenuItem>
         </Menu>
       </div>
+
+      {
+        profileModalOpened ? (
+          <ProfileModal setProfileModalOpened={setProfileModalOpened} />
+        ) : null
+      }
     </header>
   );
 }
