@@ -3,7 +3,7 @@ import { ButtonUnstyled, buttonUnstyledClasses, ButtonUnstyledProps } from '@mui
 
 type ButtonProps = {
   label: string;
-  color: "success" | "error";
+  color: "success" | "error" | "info";
   type?: "submit" | "button";
 };
 
@@ -11,7 +11,7 @@ export default function CButton(btn__props: ButtonProps) {
   const CustomButtonRoot = styled('button')`
     font-family: var(--archivo-b);
     font-size: 1rem;
-    background-color: ${btn__props.color === "success" ? "var(--green)" : "var(--red)"};
+    background-color: ${btn__props.color === "success" ? "var(--green)" : btn__props.color === "error" ? "var(--red)" : "var(--blue)"};
     padding: 12px 24px;
     border-radius: 8px;
     color: var(--bg-dark);
@@ -20,7 +20,7 @@ export default function CButton(btn__props: ButtonProps) {
     border: none;
   
     &:hover {
-      background-color: ${btn__props.color === "success" ? "var(--green-hover)" : "var(--red-hover)"} ;
+      background-color: ${btn__props.color === "success" ? "var(--green-hover)" : btn__props.color === "error" ? "var(--red-hover)" : "var(--blue-hover)"};
     }
   
     &.${buttonUnstyledClasses.active} {
