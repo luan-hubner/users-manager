@@ -1,0 +1,101 @@
+.change__password__modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.change__password__modal .modal__body {
+  max-width: 380px;
+  width: 100%;
+  
+  background-color: var(--bg-light);
+
+  border-radius: 8px;
+
+  margin: 0 auto;
+}
+
+.change__password__modal .modal__body .modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem 2rem;
+}
+
+.change__password__modal .modal__body .modal__header .icon {
+  color: #ACACAC;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.change__password__modal .modal__body .modal__header .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  column-gap: 1.5rem;
+}
+
+.change__password__modal .modal__body .title h1 {
+  font-family: var(--archivo-bi);
+  font-size: 1.5rem;
+  color: var(--input-text-color);
+}
+
+.change__password__modal .modal__body .title span {
+  font-family: var(--archivo-bi);
+  font-size: 2.2rem;
+  color: var(--input-text-color);
+  color: #FFFFFF;
+}
+
+.change__password__modal .modal__body .buttons {
+  padding: 1.5rem 3rem;
+
+  display: flex;
+  justify-content: right;
+
+  padding-top: 3rem;
+
+  column-gap: 0.6rem;
+}
+
+.change__password__modal .modal__body .modal__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.change__password__modal .modal__body .modal__content form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.change__password__modal .modal__body .modal__content form .field__label {
+  font-family: var(--archivo-li);
+  color: var(--input-text-color);
+  font-size: 1.5rem;
+  padding: 0 .5rem;
+}
+
+.change__password__modal .modal__body .modal__content form .field {
+  overflow: 'hidden';
+  border-radius: 4;
+  height: 65px;
+  padding: 0 1rem 0 .4rem;
+  background-color: var(--bg-dark);
+  font-family: var(--archivo-b);
+  color: var(--input-text-color);
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.change__password__modal .modal__body .modal__content form .login__return {
+  color: #FFFFFF;
+}
