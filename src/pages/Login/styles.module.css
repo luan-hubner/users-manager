@@ -53,3 +53,8 @@ main .container .login__box button:hover {
   background-color: var(--green-hover);
   transition: all 500ms ease;
 }
+
+main .container .login__box form .login__return {
+  margin-top: 2rem;
+  color: #FFFFFF;
+}

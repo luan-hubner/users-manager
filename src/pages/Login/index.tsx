@@ -6,7 +6,7 @@ import users__manager from '../../assets/images/usersmanager.png';
 import Mail from '@mui/icons-material/Mail';
 import Lock from '@mui/icons-material/Lock';
 
-import { InputAdornment, OutlinedInputProps } from '@mui/material';
+import { Alert, AlertTitle, InputAdornment, OutlinedInputProps } from '@mui/material';
 import { InputText } from '../../components/InputText';
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -16,10 +16,20 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [loginReturn, setLoginReturn] = useState('');
+
   async function login(e: SyntheticEvent) {
     e.preventDefault();
     
-    signIn({ email, password });
+    const loginReturn = await signIn({ email, password });
+
+    if (loginReturn) {
+      setLoginReturn(loginReturn);
+
+      setTimeout(() => {
+        setLoginReturn('');
+      }, 5000);
+    };
   };
   
   return (
@@ -32,6 +42,8 @@ export default function Login() {
             <InputText
               label="e-mail"
               variant="filled"
+              required
+              InputLabelProps={{ required: false }}
               InputProps={{ disableUnderline: true, endAdornment: (
                 <InputAdornment position="end">
                   <Mail style={{ color: 'var(--input-text-color)'}} />
@@ -44,6 +56,8 @@ export default function Login() {
               label="password"
               variant="filled"
               type="password"
+              required
+              InputLabelProps={{ required: false }}
               InputProps={{ disableUnderline: true, endAdornment: (
                 <InputAdornment position="end">
                   <Lock style={{ color: 'var(--input-text-color)'}} />
@@ -52,6 +66,15 @@ export default function Login() {
               style={{ marginTop: 11, width: '100%' }}
               onChange={(e) => setPassword(e.target.value)}
             />
+
+            {
+              loginReturn ? (
+                <Alert variant="outlined" severity="error" className={styles.login__return}>
+                  <AlertTitle>Falha na autenticação.</AlertTitle>
+                  Verifique o seu <strong>e-mail</strong> e a sua <strong>senha</strong>.
+                </Alert>
+              ) : null
+            }
 
             <button type='submit'>LOGIN</button>
           </form>
