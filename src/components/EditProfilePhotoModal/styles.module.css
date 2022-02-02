@@ -1,0 +1,98 @@
+.edit__profile__photo__modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.edit__profile__photo__modal .modal__body {
+  background-color: var(--bg-light);
+
+  border-radius: 8px;
+
+  margin: 0 auto;
+}
+
+.edit__profile__photo__modal .modal__body .modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem 2rem;
+}
+
+.edit__profile__photo__modal .modal__body .modal__header .icon {
+  color: #ACACAC;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.edit__profile__photo__modal .modal__body .modal__header .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  column-gap: 1.5rem;
+}
+
+.edit__profile__photo__modal .modal__body .title h1 {
+  font-family: var(--archivo-bi);
+  font-size: 1.5rem;
+  color: var(--input-text-color);
+}
+
+.edit__profile__photo__modal .modal__body .title span {
+  font-family: var(--archivo-bi);
+  font-size: 2.2rem;
+  color: var(--input-text-color);
+  color: #FFFFFF;
+}
+
+.edit__profile__photo__modal .modal__body .buttons {
+  padding: 1.5rem 3rem;
+
+  display: flex;
+  justify-content: right;
+
+  padding-top: 4rem;
+
+  column-gap: 0.6rem;
+}
+
+.edit__profile__photo__modal .modal__body .modal__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.edit__profile__photo__modal .modal__body .modal__content .btn__image__upload {
+  font-family: var(--archivo-b);
+  color: var(--input-text-color);
+  text-align: center;
+}
+
+.edit__profile__photo__modal .modal__body .modal__content .btn__image__upload .text__into__btn {
+  font-family: var(--archivo-bi);
+  color: var(--input-text-color);
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.edit__profile__photo__modal .modal__body .modal__content .image__preview {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 2rem;
+}
+
+.edit__profile__photo__modal .modal__body .modal__content .image__preview span {
+  width: 150px;
+  height: 150px;
+
+  border-radius: 100%;
+
+  background-position: center;
+  background-size: cover;
+}
