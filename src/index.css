@@ -2,8 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  font-size: 16px;
 }
 
 @font-face {
@@ -36,6 +34,7 @@
   --bg-dark: #282C34;
   --bg-light: #363B44;
   --blue: #00F0FF;
+  --blue-hover: #00cddb;
   --green: #0BD707;
   --green-hover: #07b304;
   --red: #FF0000;
