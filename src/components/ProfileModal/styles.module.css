@@ -1,0 +1,148 @@
+.profile__modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.profile__modal .modal__body {
+  max-width: 380px;
+  width: 100%;
+  
+  background-color: var(--bg-light);
+
+  border-radius: 8px;
+
+  margin: 0 auto;
+}
+
+.profile__modal .modal__body .modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem 2rem;
+}
+
+.profile__modal .modal__body .modal__header .icon {
+  color: #ACACAC;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.profile__modal .modal__body .modal__header .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  column-gap: 1.5rem;
+}
+
+.profile__modal .modal__body .title h1 {
+  font-family: var(--archivo-bi);
+  font-size: 1.5rem;
+  color: var(--input-text-color);
+}
+
+.profile__modal .modal__body .title span {
+  font-family: var(--archivo-bi);
+  font-size: 2.2rem;
+  color: var(--input-text-color);
+  color: #FFFFFF;
+}
+
+.profile__modal .modal__body .buttons {
+  padding: 1.5rem 3rem;
+
+  display: flex;
+  justify-content: right;
+
+  padding-top: 3rem;
+
+  column-gap: 0.6rem;
+}
+
+.profile__modal .modal__body .modal__content {
+  max-width: 365px;
+  width: 100%;
+
+  height: 100%;
+
+  background-color: var(--bg-light);
+
+  border-radius: 4px;
+
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__modal .modal__body .modal__content .user__image {
+  max-width: 135px;
+  width: 100%;
+  height: 135px;
+
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 100%;
+  
+  margin-bottom: 1rem;
+}
+
+.profile__modal .modal__body .modal__content .change__photo {
+  cursor: pointer;
+
+  margin-bottom: 2rem;
+}
+
+.profile__modal .modal__body .modal__content h1 {
+  font-family: var(--archivo-b);
+  color: var(--input-text-color);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.profile__modal .modal__body .modal__content .user__role {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.profile__modal .modal__body .modal__content .user__role .role__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+
+  background-color: var(--bg-ultra-dark);
+
+  border-radius: 4px 0 0 4px;
+}
+
+.profile__modal .modal__body .modal__content .user__role .role__name {
+  width: 150px;
+  height: 44px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--bg-dark);
+
+  border-radius: 0 4px 4px 0;
+}
+
+.profile__modal .modal__body .modal__content .user__role .role__name span {
+  font-family: var(--archivo-b);
+  font-size: 1rem;
+  color: #FFFFFF;
+}
