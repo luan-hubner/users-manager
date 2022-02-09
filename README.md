@@ -1,7 +1,5 @@
 # Users Manager
 
-Projeto desenvolvido conforme proposta do desafio técnico 🚀
-
 > Para o desenvolvimento desse projeto
 > foi pensado na usabilidade, todos os procesos
 > foram simplificados a medida do possível.
@@ -10,14 +8,14 @@ Projeto desenvolvido conforme proposta do desafio técnico 🚀
 
 ## Techs
 
-Conforme solicitado nos parâmetros do desafio:
+Alguma das tecnologias utilizadas:
 
 - [ReactJS] - framework web.
 - [JSON Server] - mock http.
 - [Material UI] - biblioteca utilizada para alguns componentes.
 - [JS Cookies] - biblioteca utilizada para o gerencimentos de cookies.
 - [React Hook Form] - biblioteca de formulários.
-- [Buffer] - biblioteca utilizada para gerar o token do usuário.
+- [Buffer] - biblioteca utilizada para gerar o token do usuário em base64.
 
 As senhas, tokens e imagens foram convertidas para base64
 para simular criptografia e armazenamento.
